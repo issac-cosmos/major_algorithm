@@ -24,7 +24,7 @@ public class DfsBfs {
             mylist.get(a[0]).add(a[1]);
             mylist.get(a[1]).add(a[0]);
         }
-        boolean[] visited =new boolean[N];
+        boolean[] visited =new boolean[N+1];
         dfs(mylist,V,visited);   //인접리스트 , 시작포인트 , 방문체크
 
         System.out.println("");
@@ -46,10 +46,10 @@ public class DfsBfs {
 
     }
     static void dfs(List<List<Integer>> mylist , int V ,boolean[] visited){
-        visited[V-1] = true;
+        visited[V] = true;
         System.out.print(V+" ");
         for(int a: mylist.get(V)){
-            if(!visited[a-1]){
+            if(!visited[a]){
                 dfs(mylist, a,visited);
             }
         }
